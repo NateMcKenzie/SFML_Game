@@ -1,4 +1,5 @@
 #include "bullets.hpp"
+#include "enemies.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Keyboard.hpp>
@@ -21,9 +22,6 @@ int main() {
     player.setFillColor(sf::Color::Green);
     player.setPosition({ static_cast<float>(WIN_WIDTH) / 2 - PLAYER_RADIUS, LOST_Y });
 
-    sf::RectangleShape enemy({ 20.f, 20.f });
-    enemy.setFillColor(sf::Color::Red);
-
     Bullets bullets;
 
     while (window.isOpen()) {
@@ -39,17 +37,10 @@ int main() {
             player.move(LATERAL_MOVE);
         }
 
-        enemy.move(VERTICAL_MOVE * 0.1f);
-
-        if (enemy.getPosition().y >= LOST_Y) {
-            window.close();
-        }
-
         bullets.update(player.getPosition());
 
         window.clear();
         window.draw(player);
-        window.draw(enemy);
         bullets.draw(window);
         window.display();
     }

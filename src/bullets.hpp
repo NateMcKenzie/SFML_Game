@@ -9,7 +9,7 @@ class Bullets {
     void update(const sf::Vector2<float>& player_position);
 
   private:
-    const float BULLET_SPEED = 1.f;
-    uint bullet_time = 0;
-    std::shared_ptr<std::vector<sf::RectangleShape>> bullets = std::make_shared<std::vector<sf::RectangleShape>>();
+    const float SPEED = 1.f;
+    uint clock = 0;
+    std::shared_ptr<std::vector<sf::RectangleShape>> entities = std::make_shared<std::vector<sf::RectangleShape>>();
 };
