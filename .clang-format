@@ -1,0 +1,19 @@
+Language: Cpp
+ColumnLimit: 120
+BreakBeforeBraces : Attach
+BreakConstructorInitializers: AfterColon
+Cpp11BracedListStyle: false
+IndentCaseLabels: true
+NamespaceIndentation: All
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+DerivePointerAlignment: false
+PointerAlignment: Left
+IncludeBlocks: Regroup
+IndentPPDirectives: BeforeHash
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortLambdasOnASingleLine: None
+BraceWrapping:
+  BeforeLambdaBody: true
+LambdaBodyIndentation: Signature
