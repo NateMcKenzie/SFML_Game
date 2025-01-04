@@ -1,5 +1,4 @@
 #include "bullets.hpp"
-#include "enemies.hpp"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Window/Keyboard.hpp>
