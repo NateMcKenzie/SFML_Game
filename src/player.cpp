@@ -23,9 +23,9 @@ void Player::draw(sf::RenderWindow& window) {
 }
 
 void Player::update() {
-    if (++fire_clock >= 60) {
+    if (++fireClock >= 60) {
         bullets->push_back(Bullet(position()));
-        fire_clock = 0;
+        fireClock = 0;
     }
 
     for (auto it = bullets->begin(); it != bullets->end();) {

@@ -18,7 +18,7 @@ class Player {
     constexpr static const float PLAYER_RADIUS = 30.f;
 
   private:
-    uint fire_clock = 0;
+    uint fireClock = 0;
     sf::CircleShape drawable;
     std::shared_ptr<std::vector<Bullet>> bullets = std::make_shared<std::vector<Bullet>>();
 };

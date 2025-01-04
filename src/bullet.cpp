@@ -12,6 +12,7 @@ Bullet::Bullet(sf::Vector2<float> position, sf::Color color) {
 Bullet::Bullet(const Bullet& rhs) : destroyed(rhs.destroyed), speed(rhs.speed), drawable(rhs.drawable) {} // copy
 Bullet::Bullet(Bullet&& rhs) noexcept :
     destroyed(rhs.destroyed), speed(rhs.speed), drawable(std::move(rhs.drawable)) {} // move
+
 Bullet& Bullet::operator=(const Bullet& rhs) {                                       // copy
     // Should check rhs != this but I don't have that operator implemented right now.
     destroyed = rhs.destroyed;
@@ -19,6 +20,7 @@ Bullet& Bullet::operator=(const Bullet& rhs) {                                  
     drawable = rhs.drawable;
     return *this;
 }
+
 Bullet& Bullet::operator=(Bullet&& rhs) noexcept { // move
     // Should check rhs != this but I don't have that operator implemented right now.
     destroyed = rhs.destroyed;
