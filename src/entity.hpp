@@ -15,8 +15,7 @@ class Entity {
     virtual void destroy();
     virtual void draw(sf::RenderWindow& window);
     virtual void update() = 0;
-    bool isColliding(sf::RectangleShape other);
-    bool isColliding(sf::CircleShape other);
+    bool isColliding(Entity& other);
 
     bool destroyed = false;
 

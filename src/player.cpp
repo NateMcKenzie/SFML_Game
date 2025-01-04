@@ -38,3 +38,7 @@ void Player::update() {
         }
     }
 }
+
+std::weak_ptr<std::vector<Bullet>> Player::shareBullets() {
+    return std::weak_ptr(bullets);
+}

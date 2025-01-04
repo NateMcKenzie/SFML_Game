@@ -1,3 +1,4 @@
+#include "collisionSystem.hpp"
 #include "level.hpp"
 #include "player.hpp"
 
@@ -15,8 +16,9 @@ int main() {
 
     Player player{ { static_cast<float>(WIN_WIDTH) / 2 - Player::PLAYER_RADIUS,
                      WIN_HEIGHT - (2 * Player::PLAYER_RADIUS) - 10 } };
-
     Level level;
+
+    CollissionSystem collissionSystem{ player.shareBullets(), level.shareEnemies() };
 
     while (window.isOpen()) {
         while (const std::optional event = window.pollEvent()) {
@@ -37,6 +39,7 @@ int main() {
 
         player.update();
         level.update();
+        collissionSystem.runCollisions();
 
         window.clear();
         player.draw(window);

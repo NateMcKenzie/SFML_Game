@@ -32,3 +32,7 @@ void Level::draw(sf::RenderWindow& window) {
         enemy.draw(window);
     }
 }
+
+std::weak_ptr<std::vector<Enemy>> Level::shareEnemies() {
+    return std::weak_ptr(enemies);
+}

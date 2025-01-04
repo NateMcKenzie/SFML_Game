@@ -12,6 +12,7 @@ class Level {
     Level();
     void update();
     void draw(sf::RenderWindow& window);
+    std::weak_ptr<std::vector<Enemy>> shareEnemies();
 
   private:
     uint clock{ 0 };

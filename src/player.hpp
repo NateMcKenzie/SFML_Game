@@ -18,6 +18,8 @@ class Player {
 
     sf::Vector2<float> position() { return drawable.getPosition(); }
 
+    std::weak_ptr<std::vector<Bullet>> shareBullets();
+
     constexpr static const float PLAYER_RADIUS = 30.f;
 
   private:

@@ -33,19 +33,8 @@ void Entity::destroy() {
     destroyed = true;
 }
 
-bool Entity::isColliding(sf::RectangleShape other) {
-    return other.getLocalBounds().findIntersection(drawable.getLocalBounds()).has_value();
-}
-
-bool Entity::isColliding(sf::CircleShape other) {
-    // Slight approximation
-    float corner0Distance = distanceCalculate({ drawable.getPoint(0) }, other.getGeometricCenter());
-    float corner1Distance = distanceCalculate({ drawable.getPoint(0) }, other.getGeometricCenter());
-    float corner2Distance = distanceCalculate({ drawable.getPoint(0) }, other.getGeometricCenter());
-    float corner3Distance = distanceCalculate({ drawable.getPoint(0) }, other.getGeometricCenter());
-
-    return corner0Distance < other.getRadius() || corner1Distance < other.getRadius() ||
-           corner2Distance < other.getRadius() || corner3Distance < other.getRadius();
+bool Entity::isColliding(Entity& other) {
+    return other.drawable.getGlobalBounds().findIntersection(drawable.getGlobalBounds()).has_value();
 }
 
 void Entity::draw(sf::RenderWindow& window) {
