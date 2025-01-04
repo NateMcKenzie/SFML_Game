@@ -2,6 +2,7 @@ Language: Cpp
 ColumnLimit: 120
 BreakBeforeBraces : Attach
 BreakConstructorInitializers: AfterColon
+SeparateDefinitionBlocks: Always
 Cpp11BracedListStyle: false
 IndentCaseLabels: true
 NamespaceIndentation: All

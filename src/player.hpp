@@ -1,3 +1,5 @@
+#pragma once
+
 #include "bullet.hpp"
 
 #include <SFML/Graphics/CircleShape.hpp>
@@ -13,6 +15,7 @@ class Player {
     void draw(sf::RenderWindow& window);
     void update();
     void move(sf::Vector2<float> vector);
+
     sf::Vector2<float> position() { return drawable.getPosition(); }
 
     constexpr static const float PLAYER_RADIUS = 30.f;
