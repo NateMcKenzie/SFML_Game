@@ -16,7 +16,10 @@ class Player {
     constexpr static const float PLAYER_RADIUS = 30.f;
 
   private:
+    sf::RectangleShape bulletGen();
+
     const float BULLET_SPEED = 1.f;
+
     uint fire_clock = 0;
     sf::CircleShape drawable;
     std::shared_ptr<std::vector<sf::RectangleShape>> bullets = std::make_shared<std::vector<sf::RectangleShape>>();

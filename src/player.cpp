@@ -24,10 +24,7 @@ void Player::draw(sf::RenderWindow& window) {
 
 void Player::update() {
     if (++fire_clock >= 60) {
-        sf::RectangleShape bullet({ 5.f, 10.f });
-        bullet.setPosition(drawable.getPosition());
-        bullet.setFillColor(sf::Color::Blue);
-        bullets->push_back(bullet);
+        bullets->push_back(bulletGen());
         fire_clock = 0;
     }
 
@@ -39,4 +36,11 @@ void Player::update() {
             ++it;
         }
     }
+}
+
+sf::RectangleShape Player::bulletGen() {
+    sf::RectangleShape bullet({ 5.f, 10.f });
+    bullet.setPosition(drawable.getPosition());
+    bullet.setFillColor(sf::Color::Blue);
+    return bullet;
 }
