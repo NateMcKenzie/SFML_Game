@@ -4,6 +4,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 Player::Player(sf::Vector2<float> position) : Player(position, sf::Color::Green) {}
+
 Player::Player(sf::Vector2<float> position, sf::Color color) {
     drawable = sf::CircleShape(PLAYER_RADIUS);
     drawable.setPosition(position);
