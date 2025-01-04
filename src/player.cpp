@@ -17,30 +17,23 @@ void Player::move(sf::Vector2<float> vector) {
 void Player::draw(sf::RenderWindow& window) {
     window.draw(drawable);
 
-    for (sf::RectangleShape& bullet : *bullets) {
-        window.draw(bullet);
+    for (Bullet& bullet : *bullets) {
+        bullet.draw(window);
     }
 }
 
 void Player::update() {
     if (++fire_clock >= 60) {
-        bullets->push_back(bulletGen());
+        bullets->push_back(Bullet(position()));
         fire_clock = 0;
     }
 
     for (auto it = bullets->begin(); it != bullets->end();) {
-        it->move({ 0.f, -BULLET_SPEED });
-        if (it->getPosition().y < 0) {
+        it->update();
+        if (it->destroyed) {
             it = bullets->erase(it);
         } else {
             ++it;
         }
     }
-}
-
-sf::RectangleShape Player::bulletGen() {
-    sf::RectangleShape bullet({ 5.f, 10.f });
-    bullet.setPosition(drawable.getPosition());
-    bullet.setFillColor(sf::Color::Blue);
-    return bullet;
 }

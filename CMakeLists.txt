@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.28)
 set(PROJECT ShootEmUp)
 project(${PROJECT} LANGUAGES CXX)
 
-set(SOURCE_FILES src/player.cpp src/level.cpp)
-set(HEADER_FILES src/player.hpp src/level.hpp)
+set(SOURCE_FILES src/player.cpp src/level.cpp src/bullet.cpp)
+set(HEADER_FILES src/player.hpp src/level.hpp src/bullet.hpp src/utilities.hpp)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_CXX_STANDARD 23)
