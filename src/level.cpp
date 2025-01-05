@@ -4,17 +4,24 @@
 
 Level::Level() {
     enemies = std::make_shared<std::vector<Enemy>>();
-    enemyTicks = std::make_shared<std::deque<uint>>();
+    enemyTicks = {
+        std::make_shared<std::deque<uint>>(),
+        std::make_shared<std::deque<uint>>(),
+    };
 
     for (uint i = 0; i < 40; i++) {
-        enemyTicks->push_back(i * 120);
+        enemyTicks[0]->push_back(i * 200);
+        enemyTicks[1]->push_back(i * 300);
     }
 }
 
 void Level::update() {
-    if (enemyTicks->front() <= ++clock) {
-        enemyTicks->pop_front();
-        enemies->push_back(Enemy({ 20.f, 0.f }));
+    for (uint i = 0; i < enemyTicks.size(); i++) {
+        std::shared_ptr<std::deque<uint>> column = enemyTicks[i];
+        if (column->front() <= clock) {
+            column->pop_front();
+            enemies->push_back(Enemy({ 30.f * i, -Enemy::SIZE.y }));
+        }
     }
 
     for (auto it = enemies->begin(); it != enemies->end();) {
@@ -25,6 +32,7 @@ void Level::update() {
             ++it;
         }
     }
+    clock++;
 }
 
 void Level::draw(sf::RenderWindow& window) {

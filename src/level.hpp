@@ -17,5 +17,5 @@ class Level {
   private:
     uint clock{ 0 };
     std::shared_ptr<std::vector<Enemy>> enemies;
-    std::shared_ptr<std::deque<uint>> enemyTicks;
+    std::vector<std::shared_ptr<std::deque<uint>>> enemyTicks;
 };
