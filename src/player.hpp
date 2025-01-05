@@ -21,9 +21,11 @@ class Player {
     std::weak_ptr<std::vector<Bullet>> shareBullets();
 
     constexpr static const float PLAYER_RADIUS = 30.f;
+    bool shooting = false;
 
   private:
     uint fireClock = 0;
+    uint fireDelay = 20;
     sf::CircleShape drawable;
     std::shared_ptr<std::vector<Bullet>> bullets = std::make_shared<std::vector<Bullet>>();
 };

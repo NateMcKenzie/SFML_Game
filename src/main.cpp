@@ -24,6 +24,14 @@ int main() {
         while (const std::optional event = window.pollEvent()) {
             if (event->is<sf::Event::Closed>()) {
                 window.close();
+            } else if (const auto* keyEvent = event->getIf<sf::Event::KeyPressed>()) {
+                if (keyEvent->scancode == sf::Keyboard::Scancode::Space) {
+                    player.shooting = true;
+                }
+            } else if (const auto* keyEvent = event->getIf<sf::Event::KeyReleased>()) {
+                if (keyEvent->scancode == sf::Keyboard::Scancode::Space) {
+                    player.shooting = false;
+                }
             }
         }
 
