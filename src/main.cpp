@@ -16,7 +16,7 @@ int main() {
 
     Player player{ { static_cast<float>(WIN_WIDTH) / 2 - Player::PLAYER_RADIUS,
                      WIN_HEIGHT - (2 * Player::PLAYER_RADIUS) - 10 } };
-    Level level;
+    Level level{ WIN_WIDTH, 2 };
 
     CollissionSystem collissionSystem{ player.shareBullets(), level.shareEnemies() };
 
@@ -37,11 +37,11 @@ int main() {
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
             if (player.position().x > 0) {
-                player.move({ -1.f, 0.f });
+                player.move({ -3.f, 0.f });
             }
         } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
             if (player.position().x < WIN_WIDTH - (2 * Player::PLAYER_RADIUS)) {
-                player.move({ 1.f, 0.f });
+                player.move({ 3.f, 0.f });
             }
         }
 

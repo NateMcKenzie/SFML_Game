@@ -6,9 +6,9 @@ class Enemy : public Entity {
   public:
     using Entity::Entity;
 
-    Enemy(sf::Vector2<float> position) : Entity(position, SIZE, sf::Color::Red) {}
+    Enemy(sf::Vector2<float> position, sf::Vector2<float> size) : Entity(position, size, sf::Color::Red) {
+        speed = 0.5f;
+    }
 
     virtual void update();
-
-    static constexpr sf::Vector2<float> SIZE = { 20.f, 40.f };
 };

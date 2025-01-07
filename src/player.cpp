@@ -25,7 +25,7 @@ void Player::draw(sf::RenderWindow& window) {
 
 void Player::update() {
     if (shooting && ++fireClock >= fireDelay) {
-        bullets->push_back(Bullet(position()));
+        bullets->push_back(Bullet(position() + sf::Vector2<float>(PLAYER_RADIUS, 0)));
         fireClock = 0;
     }
 
